@@ -1,6 +1,6 @@
 # UIGen
 
-AI-powered React component generator with live preview. "save"
+AI-powered React component generator with live preview. "novo"
 
 ## Prerequisites
 
