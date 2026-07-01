@@ -1,6 +1,6 @@
 # UIGen
 
-AI-powered React component generator with live preview. "novo"
+AI-powered React component generator with a live, in-browser preview — chat with Claude to describe a component and watch it render instantly, no bundler or file system required.
 
 ## Prerequisites
 
@@ -41,22 +41,30 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
+### Other commands
+
+```bash
+npm run build       # production build
+npm run lint         # next lint
+npm test             # run the vitest test suite
+npm run db:reset     # reset the SQLite dev database (destructive)
+```
+
 ## Usage
 
-1. Sign up or continue as anonymous user
+1. Sign up or continue as an anonymous user
 2. Describe the React component you want to create in the chat
-3. View generated components in real-time preview
-4. Switch to Code view to see and edit the generated files
-5. Continue iterating with the AI to refine your components
+3. Watch it render in the live preview as the AI generates it
+4. Switch to Code view to inspect and edit the generated files directly
+5. Keep chatting with the AI to iterate on and refine your components
 
 ## Features
 
 - AI-powered component generation using Claude
-- Live preview with hot reload
-- Virtual file system (no files written to disk)
-- Syntax highlighting and code editor
-- Component persistence for registered users
-- Export generated code
+- Live, in-browser preview with no bundler and no files written to disk
+- Virtual file system with a Monaco-based code editor and file tree
+- Component and chat history persistence for registered users
+- Anonymous usage supported, with work carried over on sign-up
 
 ## Tech Stack
 
