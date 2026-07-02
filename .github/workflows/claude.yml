@@ -35,6 +35,9 @@ jobs:
           npm run setup
           npm run dev:daemon
 
+      - name: Install Playwright browser
+        run: npx --yes playwright install --with-deps chromium
+
       - name: Run Claude Code
         id: claude
         uses: anthropics/claude-code-action@v1
