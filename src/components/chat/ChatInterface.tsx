@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { AlertCircle } from "lucide-react";
 import { MessageList } from "./MessageList";
 import { MessageInput } from "./MessageInput";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -8,7 +9,7 @@ import { useChat } from "@/lib/contexts/chat-context";
 
 export function ChatInterface() {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
-  const { messages, input, handleInputChange, handleSubmit, status } = useChat();
+  const { messages, input, handleInputChange, handleSubmit, status, error } = useChat();
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
@@ -34,6 +35,14 @@ export function ChatInterface() {
             <MessageList messages={messages} isLoading={status === "streaming"} />
           </div>
         </ScrollArea>
+      )}
+      {error && (
+        <div className="mt-4 flex-shrink-0 flex items-start gap-2.5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
+          <span>
+            {error.message || "Something went wrong while generating a response. Please try again."}
+          </span>
+        </div>
       )}
       <div className="mt-4 flex-shrink-0">
         <MessageInput

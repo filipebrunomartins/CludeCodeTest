@@ -79,7 +79,12 @@ export async function POST(req: Request) {
     },
   });
 
-  return result.toDataStreamResponse();
+  return result.toDataStreamResponse({
+    getErrorMessage: (error) => {
+      console.error(error);
+      return "Failed to generate a response. Please check your Anthropic API key and try again.";
+    },
+  });
 }
 
 export const maxDuration = 120;
